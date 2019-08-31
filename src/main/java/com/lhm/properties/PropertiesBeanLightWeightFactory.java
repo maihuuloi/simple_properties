@@ -34,11 +34,11 @@ public class PropertiesBeanLightWeightFactory {
         return instance;
     }
 
-    public static <T extends BeanProperties> T createFromBeanType(Class<T> clazz) throws PropertiesConfigException {
+    public static <T> T createFromBeanType(Class<T> clazz) throws PropertiesConfigException {
         return PropertiesBeanLightWeightFactory.getInstance().create(clazz);
     }
 
-    public <T extends BeanProperties> T create(Class<T> clazz) {
+    public <T> T create(Class<T> clazz) {
         T t = (T) propertyObjects.get(clazz.getName());
 
         if (t == null) {

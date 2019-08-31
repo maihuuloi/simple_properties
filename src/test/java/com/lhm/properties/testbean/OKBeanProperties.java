@@ -1,6 +1,5 @@
 package com.lhm.properties.testbean;
 
-import com.lhm.properties.BeanProperties;
 import com.lhm.properties.annotation.Prefix;
 import com.lhm.properties.annotation.PropertyFormat;
 import com.lhm.properties.annotation.PropertyName;
@@ -8,7 +7,7 @@ import com.lhm.properties.annotation.PropertyName;
 import java.util.Date;
 
 @Prefix(value = "app")
-public class OKBeanProperties implements BeanProperties{
+public class OKBeanProperties{
 
     private String withoutAnnotationField;
 

@@ -27,7 +27,7 @@ public class PropertiesBeanFactory {
         this.properties = properties;
     }
 
-    public <T extends BeanProperties> T createFromBeanType(Class<T> clazz) {
+    public <T> T createFromBeanType(Class<T> clazz) {
         T propertyBean = createBeanFromType(clazz);
 
         fillBeanFieldsWithPropertyValues(propertyBean);
@@ -35,7 +35,7 @@ public class PropertiesBeanFactory {
         return propertyBean;
     }
 
-    private <T extends BeanProperties> void fillBeanFieldsWithPropertyValues(T propertyBean) {
+    private <T> void fillBeanFieldsWithPropertyValues(T propertyBean) {
         Class clazz = propertyBean.getClass();
         String propertyPrefix = getPropertyNamePrefixFromClassAnnotation(clazz);
 
@@ -82,7 +82,7 @@ public class PropertiesBeanFactory {
     }
 
 
-    private <T extends BeanProperties> void setValueToFieldForBean(Object parsedValue, Field field, T propertyBean) {
+    private <T> void setValueToFieldForBean(Object parsedValue, Field field, T propertyBean) {
         try {
             field.set(propertyBean, parsedValue);
         } catch (IllegalAccessException e) {
